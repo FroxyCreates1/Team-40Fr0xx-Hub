@@ -132,8 +132,8 @@ createButton("Inf Yield", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Infinite%20Yield.lua"))()
 end)
 
-createButton("c00lGUI", function()
-    loadstring(game:HttpGet("https://obj.wearedevs.net/199083/scripts/C00LKID.lua"))()
+createButton("E to Gravity Switch", function()
+    loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Gravity%20Switch.lua"))()
 end)
 
 createButton("Noclip", function()
