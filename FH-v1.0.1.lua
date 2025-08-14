@@ -189,14 +189,14 @@ createButton("Click TP", function()
 end)
 
 createButton("YARHM", function()
-    loadstring(game:HttpGet("Https://templateweb.org/templ.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/YARHM.lua"))()
 end)
 
-createButton("Template", function()
-    loadstring(game:HttpGet("Https://templateweb.org/templ.lua"))()
+createButton("ANTI-AFK", function()
+    loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Focus%20Anti-AFK.lua"))()
 end)
 
-createButton("Template", function()
+createButton("[Forsaken] Admin Killers", function()
     loadstring(game:HttpGet("Https://templateweb.org/templ.lua"))()
 end)
 
