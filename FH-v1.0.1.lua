@@ -244,7 +244,6 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if input.UserInputType == Enum.UserInputType.Keyboard then
         keysDown[input.KeyCode] = true
         if input.KeyCode == toggleKey then
-		notify("Toggle flight" .. (speedActive and "Enabled" or "Disabled"))
             toggleUI()
         end
     end
@@ -260,7 +259,6 @@ end)
 UserInputService.JumpRequest:Connect(function()
     if infiniteJump then
         humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		notify("Toggle Inf Jumpa " .. (speedActive and "Enabled" or "Disabled"))
     end
 end)
 
