@@ -107,16 +107,16 @@ local function createButton(text, callback)
 end
 
 -- Buttons (All your old buttons)
-createButton("Toggle Speed", function()
+createButton("[UNIVERSAL] Toggle Speed", function()
     speedActive = not speedActive
     humanoid.WalkSpeed = speedActive and speedValue or 16
 end)
 
-createButton("Infinite Jump", function()
+createButton("[UNIVERSAL] Infinite Jump", function()
     infiniteJump = not infiniteJump
 end)
 
-createButton("Clear Workspace", function()
+createButton("[UNIVERSAL] Clear Workspace", function()
     for _, obj in pairs(workspace:GetChildren()) do
         if obj ~= character and obj.Name ~= "Baseplate" and not obj:IsA("Terrain") then
             obj:Destroy()
@@ -124,93 +124,130 @@ createButton("Clear Workspace", function()
     end
 end)
 
-createButton("Dex", function()
+createButton("[UNIVERSAL] Dex", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Dex%20Explorer.lua"))()
 end)
 
-createButton("Inf Yield", function()
+createButton("[UNIVERSAL] Inf Yield", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Infinite%20Yield.lua"))()
 end)
 
-createButton("Saveinstance (Decompiler)", function()
+createButton("[UNIVERSAL] Saveinstance (Decompiler)", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/luau/UniversalSynSaveInstance/refs/heads/main/saveinstance.luau"))()
 end)
 
-createButton("Forsaken OP script (idk if it works ;-;)", function()
+createButton("[Forsaken] OP script", function()
     loadstring(game: HttpGet("https://gist.githubusercontent.com/ScriptsForDays/7d1d59d7ee74f737661958a7ece105c1/raw/50776639545b645b7ad457aeaa60b2346ba777a0/FORSAKEN-V1"))()
 end)
 
-createButton("Invincible Flight", function()
+createButton("[UNIVERSAL] Invincible Flight", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/197198/scripts/invincible%20flight%20animation.lua"))()
 end)
 
-createButton("FE ChatHax", function()
+createButton("[UNIVERSAL] FE ChatHax", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/108324/scripts/FE%20ChatHax.lua"))()
 end)
 
-createButton("JailBreak KickAll", function()
+createButton("[JB] JailBreak KickAll", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/58255/scripts/JAILBREAK%20KICK%20ALL%20SCRIPT.lua"))()
 end)
 
-createButton("Grow A Garden Spawner", function()
+createButton("[GAG] Grow A Garden Spawner", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/197196/scripts/Grow%20a%20Garden%20Script%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Pet%20Spawner%20%20Seed%20%20Spawner%20%20Egg%20Spawner%20And%20More%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Dark%20Spawner.lua"))()
 end)
 
-createButton("WRD ESP", function()
+createButton("[UNIVERSAL] WRD ESP", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/WRD%20ESP.lua"))()
 end)
 
-createButton("Unlock Workspace Baseparts", function()
+createButton("[UNIVERSAL] Unlock Workspace Baseparts", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Unlock%20Workspace%20Baseparts.lua"))()
 end)
 
-createButton("UNC Checker", function()
+createButton("[UNIVERSAL] UNC Checker", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/UNC%20Checker.lua"))()
 end)
 
-createButton("BTools", function()
+createButton("[UNIVERSAL/CLIENTSIDE] BTools", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/BTools.lua"))()
 end)
 
-createButton("Fly", function()
-    loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Fly.lua"))()
+createButton("[FORSAKEN] M1JT Pack", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/M1JTpck1"))()
 end)
 
-createButton("Blox Fruits OP Script", function()
+createButton("[BF]Blox Fruits OP Script", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/196545/scripts/Blox%20Fruits%20OP%20Script.lua"))()
 end)
 
-createButton("Human Flashlight", function()
-    loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Human%20Flashlight.lua"))()
+createButton("[FORSAKEN] Forsaken Script 2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/OhhMyGehlee/sak/refs/heads/main/for"))()
 end)
 
-createButton("Click TP", function()
+createButton("[UNIVERSAL] Click TP", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Click%20Teleport.lua"))()
 end)
 
-createButton("YARHM", function()
+createButton("[FORSAKEN] YARHM", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/YARHM.lua"))()
 end)
 
-createButton("ANTI-AFK", function()
+createButton("[UNIVERSAL]ANTI-AFK", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Focus%20Anti-AFK.lua"))()
 end)
 
-createButton("[Forsaken] APPLEFSV2", function()
-    loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/SilkScripts/AppleStuff/refs/heads/main/AppleFSKV2")))()
+createButton("[UNIVERSAL]KaterHub", function()
+    loadstring(game:HttpGet("https://katerhub-inc.github.io/KaterHub/main.lua"))()
 end)
 
-createButton("[KEY:BOBBYHUBKEYWJJEBEKEI1827272]", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub"))()
+createButton("[EMPTY] NIL", function()
+   loadstring(game:HttpGet(""))()
 end)
 
-createButton("[KEY: TogetherWeAreForsaken]", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Selivus08/Elysian/refs/heads/main/ElysianV.lua",true))()
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet("",true))()
 end)
 
-createButton("[FORSAKEN] FCD", function()
-    loadstring(game:HttpGet"https://raw.githubusercontent.com/charlieomg/forsaken-clone-stuff/refs/heads/main/beta3earlyaccess")()
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet"")()
 end)
+
+createButton("[EMPTY] NIL", function()
+   loadstring(game:HttpGet(""))()
+end)
+
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet("",true))()
+end)
+
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet"")()
+end)
+
+createButton("[EMPTY] NIL", function()
+   loadstring(game:HttpGet(""))()
+end)
+
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet("",true))()
+end)
+
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet"")()
+end)
+
+createButton("[EMPTY] NIL", function()
+   loadstring(game:HttpGet(""))()
+end)
+
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet("",true))()
+end)
+
+createButton("[EMPTY] NIL", function()
+    loadstring(game:HttpGet"")()
+end)
+
 
 -- Spawn Parts (LAGGY)
 local spawnPartsActive = false
