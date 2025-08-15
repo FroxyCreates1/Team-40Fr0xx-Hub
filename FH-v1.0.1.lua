@@ -54,7 +54,7 @@ local function createUI()
 	title.Size = UDim2.new(1,-20,0,60)
 	title.Position = UDim2.new(0,10,0,10)
 	title.BackgroundTransparency = 1
-	title.Text = "TEAM 40FR0XX V1.2.6"
+	title.Text = "TEAM 40FR0XX V1.2.7"
 	title.TextScaled = true
 	title.TextColor3 = Color3.fromRGB(255,255,255)
 	title.Font = Enum.Font.GothamBold
