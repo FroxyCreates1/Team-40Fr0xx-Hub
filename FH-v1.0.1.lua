@@ -201,7 +201,7 @@ createButton("[Forsaken] Skins and whatnot", function()
 end)
 
 createButton("1x1x1x1 Script (R6 only)", function()
-    loadstring(game:HttpGet("https://github.com/FroxyCreates1/Team-40Fr0xx-Hub/blob/main/1x1x1x1Script.lua"))()
+   loadstring(game:HttpGet("https://github.com/FroxyCreates1/Team-40Fr0xx-Hub/blob/main/1x1x1x1Script.lua"))()
 end)
 
 createButton("Stamina Changer", function()
