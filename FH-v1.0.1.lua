@@ -5,109 +5,110 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local hrp = character:WaitForChild("HumanoidRootPart")
-local humanoid = character:WaitForChild("Humanoid")
-local coreGui = player:WaitForChild("CoreGui")
+local playerGui = player:WaitForChild("PlayerGui")
 
 -- Config
 local toggleKey = Enum.KeyCode.K
 local uiVisible = true
-local flying = false
-local infiniteJump = false
-local speedActive = false
-local speedValue = 100
-local flySpeed = 100
 local closedPermanently = false
 
 -- Track keys for flying
 local keysDown = {}
 
--- Create UI
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "Team40Fr0xxUI"
-screenGui.Parent = coreGui
+-- Store states so they persist after respawn
+local infiniteJump = false
+local speedActive = false
+local speedValue = 100
 
-local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0,0,0,0)
-mainFrame.Position = UDim2.new(0.5,0,0.5,0)
-mainFrame.AnchorPoint = Vector2.new(0.5,0.5)
-mainFrame.BackgroundColor3 = Color3.fromRGB(40,40,50)
-mainFrame.BorderSizePixel = 0
-mainFrame.ClipsDescendants = true
-mainFrame.Active = true
-mainFrame.Draggable = true
-mainFrame.Parent = screenGui
+-- UI creation wrapped in a function
+local function createUI()
+	-- Destroy old copy if exists
+	if playerGui:FindFirstChild("Team40Fr0xxUI") then
+		playerGui:FindFirstChild("Team40Fr0xxUI"):Destroy()
+	end
 
-local uICorner = Instance.new("UICorner")
-uICorner.CornerRadius = UDim.new(0,25)
-uICorner.Parent = mainFrame
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+	local hrp = character:WaitForChild("HumanoidRootPart")
 
--- Title
-local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1,-20,0,60)
-title.Position = UDim2.new(0,10,0,10)
-title.BackgroundTransparency = 1
-title.Text = "TEAM 40FR0XX V1.2.5 (HUGE)"
-title.TextScaled = true
-title.TextColor3 = Color3.fromRGB(255,255,255)
-title.Font = Enum.Font.GothamBold
-title.Parent = mainFrame
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = "Team40Fr0xxUI"
+	screenGui.Parent = playerGui
 
--- Scrolling Frame
-local buttonsFolder = Instance.new("ScrollingFrame")
-buttonsFolder.Size = UDim2.new(1,-40,1,-120)
-buttonsFolder.Position = UDim2.new(0,20,0,100)
-buttonsFolder.BackgroundTransparency = 1
-buttonsFolder.ScrollBarThickness = 8
-buttonsFolder.CanvasSize = UDim2.new(0,0,0,0)
-buttonsFolder.Parent = mainFrame
+	local mainFrame = Instance.new("Frame")
+	mainFrame.Size = UDim2.new(0,0,0,0)
+	mainFrame.Position = UDim2.new(0.5,0,0.5,0)
+	mainFrame.AnchorPoint = Vector2.new(0.5,0.5)
+	mainFrame.BackgroundColor3 = Color3.fromRGB(40,40,50)
+	mainFrame.BorderSizePixel = 0
+	mainFrame.ClipsDescendants = true
+	mainFrame.Active = true
+	mainFrame.Draggable = true
+	mainFrame.Parent = screenGui
 
-local padding = Instance.new("UIPadding")
-padding.PaddingTop = UDim.new(0,5)
-padding.PaddingBottom = UDim.new(0,5)
-padding.PaddingLeft = UDim.new(0,5)
-padding.PaddingRight = UDim.new(0,5)
-padding.Parent = buttonsFolder
+	local uICorner = Instance.new("UICorner")
+	uICorner.CornerRadius = UDim.new(0,25)
+	uICorner.Parent = mainFrame
 
-local columns = 2
-local buttonWidth = 0.5
-local buttonHeight = 50
-local buttonSpacing = 10
-local createdButtons = {}
+	local title = Instance.new("TextLabel")
+	title.Size = UDim2.new(1,-20,0,60)
+	title.Position = UDim2.new(0,10,0,10)
+	title.BackgroundTransparency = 1
+	title.Text = "TEAM 40FR0XX V1.2.5 (HUGE)"
+	title.TextScaled = true
+	title.TextColor3 = Color3.fromRGB(255,255,255)
+	title.Font = Enum.Font.GothamBold
+	title.Parent = mainFrame
 
--- Helper to create buttons
-local function createButton(text, callback)
-    local button = Instance.new("TextButton")
-    button.Size = UDim2.new(buttonWidth, -buttonSpacing, 0, buttonHeight)
-    button.BackgroundColor3 = Color3.fromRGB(60,60,80)
-    button.TextColor3 = Color3.fromRGB(255,255,255)
-    button.Text = text
-    button.Font = Enum.Font.GothamBold
-    button.TextScaled = true
-    button.Parent = buttonsFolder
-    button.MouseButton1Click:Connect(callback)
-    
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0,15)
-    corner.Parent = button
+	local buttonsFolder = Instance.new("ScrollingFrame")
+	buttonsFolder.Size = UDim2.new(1,-40,1,-120)
+	buttonsFolder.Position = UDim2.new(0,20,0,100)
+	buttonsFolder.BackgroundTransparency = 1
+	buttonsFolder.ScrollBarThickness = 8
+	buttonsFolder.CanvasSize = UDim2.new(0,0,0,0)
+	buttonsFolder.Parent = mainFrame
 
-    table.insert(createdButtons, button)
+	local padding = Instance.new("UIPadding")
+	padding.PaddingTop = UDim.new(0,5)
+	padding.PaddingBottom = UDim.new(0,5)
+	padding.PaddingLeft = UDim.new(0,5)
+	padding.PaddingRight = UDim.new(0,5)
+	padding.Parent = buttonsFolder
 
-    -- Layout buttons in 2 columns
-    for i, btn in ipairs(createdButtons) do
-        local row = math.floor((i-1)/columns)
-        local col = (i-1)%columns
-        btn.Position = UDim2.new(col*buttonWidth, col*buttonSpacing, 0, row*(buttonHeight + buttonSpacing))
-    end
+	local columns = 2
+	local buttonWidth = 0.5
+	local buttonHeight = 50
+	local buttonSpacing = 10
+	local createdButtons = {}
 
-    -- Update CanvasSize dynamically
-    local totalRows = math.ceil(#createdButtons/columns)
-    buttonsFolder.CanvasSize = UDim2.new(0,0,0,totalRows*(buttonHeight+buttonSpacing))
-end
+	local function createButton(text, callback)
+		local button = Instance.new("TextButton")
+		button.Size = UDim2.new(buttonWidth, -buttonSpacing, 0, buttonHeight)
+		button.BackgroundColor3 = Color3.fromRGB(60,60,80)
+		button.TextColor3 = Color3.fromRGB(255,255,255)
+		button.Text = text
+		button.Font = Enum.Font.GothamBold
+		button.TextScaled = true
+		button.Parent = buttonsFolder
+		button.MouseButton1Click:Connect(callback)
 
--- Buttons (All your old buttons)
-createButton("[UNIVERSAL] Toggle Speed", function()
+		local corner = Instance.new("UICorner")
+		corner.CornerRadius = UDim.new(0,15)
+		corner.Parent = button
+
+		table.insert(createdButtons, button)
+
+		for i, btn in ipairs(createdButtons) do
+			local row = math.floor((i-1)/columns)
+			local col = (i-1)%columns
+			btn.Position = UDim2.new(col*buttonWidth, col*buttonSpacing, 0, row*(buttonHeight + buttonSpacing))
+		end
+
+		local totalRows = math.ceil(#createdButtons/columns)
+		buttonsFolder.CanvasSize = UDim2.new(0,0,0,totalRows*(buttonHeight+buttonSpacing))
+	end
+
+	createButton("[UNIVERSAL] Toggle Speed", function()
     speedActive = not speedActive
     humanoid.WalkSpeed = speedActive and speedValue or 16
 end)
@@ -267,69 +268,80 @@ createButton("Spawn Parts (LAGGY)", function()
     end)
 end)
 
--- Close Button
-local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0,50,0,50)
-closeButton.Position = UDim2.new(1,-60,0,10)
-closeButton.BackgroundColor3 = Color3.fromRGB(200,50,50)
-closeButton.Text = "X"
-closeButton.TextColor3 = Color3.fromRGB(255,255,255)
-closeButton.Font = Enum.Font.GothamBold
-closeButton.TextScaled = true
-closeButton.Parent = mainFrame
+	createButton("[UNIVERSAL] Infinite Jump", function()
+		infiniteJump = not infiniteJump
+	end)
 
-closeButton.MouseButton1Click:Connect(function()
-    closedPermanently = true
-    local tweenOut = TweenService:Create(mainFrame,TweenInfo.new(0.4,Enum.EasingStyle.Quad),{Size=UDim2.new(0,0,0,0)})
-    tweenOut:Play()
-    tweenOut.Completed:Connect(function()
-        mainFrame.Visible = false
-    end)
-end)
+	-- Close button
+	local closeButton = Instance.new("TextButton")
+	closeButton.Size = UDim2.new(0,50,0,50)
+	closeButton.Position = UDim2.new(1,-60,0,10)
+	closeButton.BackgroundColor3 = Color3.fromRGB(200,50,50)
+	closeButton.Text = "X"
+	closeButton.TextColor3 = Color3.fromRGB(255,255,255)
+	closeButton.Font = Enum.Font.GothamBold
+	closeButton.TextScaled = true
+	closeButton.Parent = mainFrame
 
--- Toggle UI
-local function toggleUI(state)
-    if closedPermanently then return end
-    if state == nil then state = not uiVisible end
-    uiVisible = state
+	closeButton.MouseButton1Click:Connect(function()
+		closedPermanently = true
+		local tweenOut = TweenService:Create(mainFrame,TweenInfo.new(0.4,Enum.EasingStyle.Quad),{Size=UDim2.new(0,0,0,0)})
+		tweenOut:Play()
+		tweenOut.Completed:Connect(function()
+			mainFrame.Visible = false
+		end)
+	end)
 
-    if uiVisible then
-        mainFrame.Visible = true
-        mainFrame.Size = UDim2.new(0,0,0,0)
-        local tweenIn = TweenService:Create(mainFrame,TweenInfo.new(0.5,Enum.EasingStyle.Bounce,Enum.EasingDirection.Out),{Size=UDim2.new(0,700,0,500)})
-        tweenIn:Play()
-    else
-        local tweenOut = TweenService:Create(mainFrame,TweenInfo.new(0.4,Enum.EasingStyle.Quad),{Size=UDim2.new(0,0,0,0)})
-        tweenOut:Play()
-        tweenOut.Completed:Connect(function()
-            mainFrame.Visible = false
-        end)
-    end
+	-- Toggle UI
+	local function toggleUI(state)
+		if closedPermanently then return end
+		if state == nil then state = not uiVisible end
+		uiVisible = state
+
+		if uiVisible then
+			mainFrame.Visible = true
+			mainFrame.Size = UDim2.new(0,0,0,0)
+			local tweenIn = TweenService:Create(mainFrame,TweenInfo.new(0.5,Enum.EasingStyle.Bounce,Enum.EasingDirection.Out),{Size=UDim2.new(0,700,0,500)})
+			tweenIn:Play()
+		else
+			local tweenOut = TweenService:Create(mainFrame,TweenInfo.new(0.4,Enum.EasingStyle.Quad),{Size=UDim2.new(0,0,0,0)})
+			tweenOut:Play()
+			tweenOut.Completed:Connect(function()
+				mainFrame.Visible = false
+			end)
+		end
+	end
+
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if gameProcessed then return end
+		if input.UserInputType == Enum.UserInputType.Keyboard then
+			keysDown[input.KeyCode] = true
+			if input.KeyCode == toggleKey then
+				toggleUI()
+			end
+		end
+	end)
+
+	UserInputService.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.Keyboard then
+			keysDown[input.KeyCode] = nil
+		end
+	end)
+
+	UserInputService.JumpRequest:Connect(function()
+		if infiniteJump then
+			humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+		end
+	end)
+
+	toggleUI(true)
 end
 
--- Input handling
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end
-    if input.UserInputType == Enum.UserInputType.Keyboard then
-        keysDown[input.KeyCode] = true
-        if input.KeyCode == toggleKey then
-            toggleUI()
-        end
-    end
-end)
+-- Create the UI when the game starts
+createUI()
 
-UserInputService.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Keyboard then
-        keysDown[input.KeyCode] = nil
-    end
+-- Recreate it on respawn
+player.CharacterAdded:Connect(function()
+	task.wait(0.1) -- wait a moment to avoid race conditions
+	createUI()
 end)
-
--- Infinite jump
-UserInputService.JumpRequest:Connect(function()
-    if infiniteJump then
-        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-    end
-end)
-
--- Startup animation
-toggleUI(true)
