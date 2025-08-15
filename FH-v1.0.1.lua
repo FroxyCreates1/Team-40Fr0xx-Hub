@@ -48,7 +48,7 @@ local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1,-20,0,60)
 title.Position = UDim2.new(0,10,0,10)
 title.BackgroundTransparency = 1
-title.Text = "TEAM 40FR0XX V1.2.3"
+title.Text = "TEAM 40FR0XX V1.2.5 (HUGE)"
 title.TextScaled = true
 title.TextColor3 = Color3.fromRGB(255,255,255)
 title.Font = Enum.Font.GothamBold
@@ -196,20 +196,20 @@ createButton("ANTI-AFK", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Focus%20Anti-AFK.lua"))()
 end)
 
-createButton("[Forsaken] Admin Killers", function()
-    loadstring(game:HttpGet("Https://templateweb.org/templ.lua"))()
+createButton("[Forsaken] Skins and whatnot", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/ForsakenStuff.lua"))()
 end)
 
-createButton("Template", function()
-    loadstring(game:HttpGet("Https://templateweb.org/templ.lua"))()
+createButton("1x1x1x1 Script (R6 only)", function()
+    loadstring(game:HttpGet("https://github.com/FroxyCreates1/Team-40Fr0xx-Hub/blob/main/1x1x1x1Script.lua"))()
 end)
 
-createButton("Template", function()
-    loadstring(game:HttpGet("Https://templateweb.org/templ.lua"))()
+createButton("Stamina Changer", function()
+    loadstring(game:HttpGet("https://github.com/FroxyCreates1/Team-40Fr0xx-Hub/blob/main/staminachanger.lua"))()
 end)
 
-createButton("Template", function()
-    loadstring(game:HttpGet("Https://templateweb.org/templ.lua"))()
+createButton("[FORSAKEN] FCD", function()
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/charlieomg/forsaken-clone-stuff/refs/heads/main/beta3earlyaccess")()
 end)
 
 -- Spawn Parts (LAGGY)
