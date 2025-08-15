@@ -149,12 +149,12 @@ createButton("[UNIVERSAL] FE ChatHax", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/108324/scripts/FE%20ChatHax.lua"))()
 end)
 
-createButton("[JB] JailBreak KickAll", function()
+createButton("[JAILBREAK] JailBreak KickAll", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/58255/scripts/JAILBREAK%20KICK%20ALL%20SCRIPT.lua"))()
 end)
 
-createButton("[GAG] Grow A Garden Spawner", function()
-    loadstring(game:HttpGet("https://obj.wearedevs.net/197196/scripts/Grow%20a%20Garden%20Script%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Pet%20Spawner%20%20Seed%20%20Spawner%20%20Egg%20Spawner%20And%20More%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Dark%20Spawner.lua"))()
+createButton("[STEAL A BRAINROT] ChilliHub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()
 end)
 
 createButton("[UNIVERSAL] WRD ESP", function()
