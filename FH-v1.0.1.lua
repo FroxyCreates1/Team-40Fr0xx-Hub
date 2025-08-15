@@ -26,7 +26,7 @@ local keysDown = {}
 -- Create UI
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "Team40Fr0xxUI"
-screenGui.Parent = CoreGui
+screenGui.Parent = coreGui
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0,0,0,0)
