@@ -136,8 +136,8 @@ createButton("Saveinstance (Decompiler)", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/luau/UniversalSynSaveInstance/refs/heads/main/saveinstance.luau"))()
 end)
 
-createButton("TP to Player", function()
-    loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Teleport%20To%20Player.lua"))()
+createButton("Forsaken OP script (idk if it works ;-;)", function()
+    loadstring(game: HttpGet("https://gist.githubusercontent.com/ScriptsForDays/7d1d59d7ee74f737661958a7ece105c1/raw/50776639545b645b7ad457aeaa60b2346ba777a0/FORSAKEN-V1"))()
 end)
 
 createButton("Invincible Flight", function()
@@ -196,16 +196,16 @@ createButton("ANTI-AFK", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Focus%20Anti-AFK.lua"))()
 end)
 
-createButton("[Forsaken] Skins and whatnot", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/ForsakenStuff.lua"))()
+createButton("[Forsaken] APPLEFSV2", function()
+    loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/SilkScripts/AppleStuff/refs/heads/main/AppleFSKV2")))()
 end)
 
-createButton("1x1x1x1 Script (R6 only)", function()
-   loadstring(game:HttpGet("https://github.com/FroxyCreates1/Team-40Fr0xx-Hub/blob/main/1x1x1x1Script.lua"))()
+createButton("[KEY:BOBBYHUBKEYWJJEBEKEI1827272]", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub"))()
 end)
 
-createButton("Stamina Changer", function()
-    loadstring(game:HttpGet("https://github.com/FroxyCreates1/Team-40Fr0xx-Hub/blob/main/staminachanger.lua"))()
+createButton("[KEY: TogetherWeAreForsaken]", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Selivus08/Elysian/refs/heads/main/ElysianV.lua",true))()
 end)
 
 createButton("[FORSAKEN] FCD", function()
