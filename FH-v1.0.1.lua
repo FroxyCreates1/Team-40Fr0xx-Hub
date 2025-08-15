@@ -54,7 +54,7 @@ local function createUI()
 	title.Size = UDim2.new(1,-20,0,60)
 	title.Position = UDim2.new(0,10,0,10)
 	title.BackgroundTransparency = 1
-	title.Text = "TEAM 40FR0XX V1.2.5 (HUGE)"
+	title.Text = "TEAM 40FR0XX V1.2.6"
 	title.TextScaled = true
 	title.TextColor3 = Color3.fromRGB(255,255,255)
 	title.Font = Enum.Font.GothamBold
@@ -249,10 +249,13 @@ createButton("[ANTI-CHEAT REMOVER] ANTI-ANTI CHEAT", function()
     loadstring(game:HttpGet"https://raw.githubusercontent.com/Steve-Bloks/adonis/refs/heads/main/adonisdisabler.lua")()
 end)
 
+createButton("[UNIVERSAL] Forsakation Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CyberNinja103/brodwa/refs/heads/main/ForsakationHub"))()
+end)
 
 -- Spawn Parts (LAGGY)
 local spawnPartsActive = false
-createButton("Spawn Parts (LAGGY)", function()
+createButton("[UNIVERSAL/CLIENT] Spawn Parts", function()
     spawnPartsActive = not spawnPartsActive
     spawn(function()
         while spawnPartsActive do
