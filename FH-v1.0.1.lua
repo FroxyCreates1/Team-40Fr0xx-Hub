@@ -8,7 +8,7 @@ local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local hrp = character:WaitForChild("HumanoidRootPart")
 local humanoid = character:WaitForChild("Humanoid")
-local playerGui = player:WaitForChild("PlayerGui")
+local coreGui = player:WaitForChild("CoreGui")
 
 -- Config
 local toggleKey = Enum.KeyCode.K
