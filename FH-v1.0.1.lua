@@ -253,6 +253,10 @@ createButton("[UNIVERSAL] Forsakation Hub", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CyberNinja103/brodwa/refs/heads/main/ForsakationHub"))()
 end)
 
+createButton("[SLAP BATTLES] Flowers Ability", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Umbrella-Scripter/Slap-Battles/refs/heads/main/F.L.O.W.E.R.lua'))()
+end)
+	
 createButton("[TEST] GANGNAM STYLE", function()
     local TweenService = game:GetService("TweenService")
     local Players = game:GetService("Players")
