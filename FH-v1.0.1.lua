@@ -258,100 +258,11 @@ createButton("[SLAP BATTLES] Flowers Ability", function()
 end)
 	
 createButton("[TEST] GANGNAM STYLE", function()
-    local TweenService = game:GetService("TweenService")
-    local Players = game:GetService("Players")
-    local player = Players.LocalPlayer
-    local char = player.Character or player.CharacterAdded:Wait()
-
-    -- Helper function to tween Motor6D joints
-    local function tweenJoint(joint, goalC0, time)
-        local tween = TweenService:Create(joint, TweenInfo.new(time, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {C0 = goalC0})
-        tween:Play()
-        return tween
-    end
-
-    -- Ensure R6 joints exist
-    local torso = char:FindFirstChild("Torso")
-    if not torso then return end
-    local humanoid = char:FindFirstChild("Humanoid")
-    if not humanoid then return end
-
-    local rightHip = torso:FindFirstChild("Right Hip")
-    local leftHip = torso:FindFirstChild("Left Hip")
-    local rightShoulder = torso:FindFirstChild("Right Shoulder")
-    local leftShoulder = torso:FindFirstChild("Left Shoulder")
-    local neck = torso:FindFirstChild("Neck")
-
-    if not (rightHip and leftHip and rightShoulder and leftShoulder and neck) then return end
-
-    -- Freeze player in place
-    humanoid:ChangeState(Enum.HumanoidStateType.Physics)
-
-    local runAnim = true
-    task.spawn(function()
-        local elapsed = 0
-        while runAnim and elapsed < 10 do
-            -- Step 1: Arms crossed (Gangnam Style signature pose)
-            tweenJoint(rightShoulder, CFrame.new(1, 0.5, 0) * CFrame.Angles(math.rad(-90), math.rad(30), math.rad(20)), 0.2)
-            tweenJoint(leftShoulder, CFrame.new(-1, 0.5, 0) * CFrame.Angles(math.rad(-90), math.rad(-30), math.rad(-20)), 0.2)
-
-            -- Step 1 legs: right forward, left back
-            tweenJoint(rightHip, CFrame.new(1, -1, 0) * CFrame.Angles(math.rad(10), 0, math.rad(15)), 0.2)
-            tweenJoint(leftHip, CFrame.new(-1, -1, 0) * CFrame.Angles(math.rad(-10), 0, math.rad(-15)), 0.2)
-
-            -- Torso bounce up
-            torso.CFrame = torso.CFrame * CFrame.new(0, 0.2, 0)
-            task.wait(0.2)
-
-            -- Step 2: Swap legs (like riding a horse)
-            tweenJoint(rightHip, CFrame.new(1, -1, 0) * CFrame.Angles(math.rad(-10), 0, math.rad(-15)), 0.2)
-            tweenJoint(leftHip, CFrame.new(-1, -1, 0) * CFrame.Angles(math.rad(10), 0, math.rad(15)), 0.2)
-
-            -- Torso bounce down
-            torso.CFrame = torso.CFrame * CFrame.new(0, -0.2, 0)
-            task.wait(0.2)
-
-            elapsed += 0.4
-        end
-
-        -- Restore control
-        humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
-    end)
-end)
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/GangnumStyle.lua'))()
+end)			
 
 createButton("[UNIVERSAL] C00LKIDD CLOTHING", function()
-    local Players = game:GetService("Players")
-    local player = Players.LocalPlayer
-    local char = player.Character or player.CharacterAdded:Wait()
-
-    -- CHANGE THESE TO YOUR SHIRT + PANTS IDs IF U WANT
-    local shirtId = "rbxassetid://16012481458" 
-    local pantsId = "rbxassetid://107896578601954" 
-    -- ==============================================
-
-    -- Turn character red
-    for _, part in ipairs(char:GetDescendants()) do
-        if part:IsA("BasePart") then
-            part.Color = Color3.fromRGB(255, 0, 0)
-        end
-    end
-
-    -- Remove old clothing if it exists
-    if char:FindFirstChildOfClass("Shirt") then
-        char:FindFirstChildOfClass("Shirt"):Destroy()
-    end
-    if char:FindFirstChildOfClass("Pants") then
-        char:FindFirstChildOfClass("Pants"):Destroy()
-    end
-
-    -- Add new clothing
-    local shirt = Instance.new("Shirt")
-    shirt.ShirtTemplate = shirtId
-    shirt.Parent = char
-
-    local pants = Instance.new("Pants")
-    pants.PantsTemplate = pantsId
-    pants.Parent = char
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/c00lkiddOutfit.lua'))()
 end)
 	
 
