@@ -129,8 +129,8 @@ createButton("[UNIVERSAL] Dex", function()
     loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Dex%20Explorer.lua"))()
 end)
 
-createButton("[UNIVERSAL] Inf Yield", function()
-    loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Infinite%20Yield.lua"))()
+createButton("[UNIVERSAL] Infinite Yield", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
 createButton("[UNIVERSAL] Saveinstance (Decompiler)", function()
