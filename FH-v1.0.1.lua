@@ -264,8 +264,11 @@ end)
 createButton("[UNIVERSAL] C00LKIDD CLOTHING", function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/c00lkiddOutfit.lua'))()
 end)
-	
 
+createButton("[UNIVERSAL] Spidermode", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/SpiderMode.lua'))()		
+end)
+	
 local spawnPartsActive = false
 createButton("[UNIVERSAL/CLIENT] Spawn Parts", function()
     spawnPartsActive = not spawnPartsActive
