@@ -268,6 +268,11 @@ end)
 createButton("[UNIVERSAL] Spidermode", function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/SpiderMode.lua'))()		
 end)
+
+createButton("[STEAL A BRAINROTT] SAB Hub thing", function()
+	loadstring(game:HttpGet("https://pastefy.app/2KSAeZ3G/raw"))() 		
+end)	
+	
 	
 local spawnPartsActive = false
 createButton("[UNIVERSAL/CLIENT] Spawn Parts", function()
