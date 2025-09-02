@@ -461,9 +461,9 @@ local function createUI()
         end)
     end)
 
-    createButton("[UNIVERSAL] Spidermode", function()
+    createButton("[UNIVERSAL] Avatar Changer", function()
         pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/SpiderMode.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/ScriptAuthorization%20Source"))()Ioad("798d0bffa1239975b4740512fef38f6f")
         end)
     end)
 
