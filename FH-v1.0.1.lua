@@ -307,7 +307,7 @@ local function createUI()
 
     createButton("[UNIVERSAL] Unlock Workspace Baseparts", function()
         pcall(function()
-            loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Unlock%20Workspace%20Baseparts.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FroxyCreates1/Team-40Fr0xx-Hub/refs/heads/main/DecalSpamClient.lua"))()
         end)
     end)
 
