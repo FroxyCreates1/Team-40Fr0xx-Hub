@@ -1,5 +1,4 @@
 -- Full LocalScript: Key system + full Team40Fr0xx UI (all buttons included)
--- Place this as a LocalScript (StarterPlayerScripts / PlayerGui)
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
